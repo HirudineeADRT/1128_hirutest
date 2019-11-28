@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "1128_hirutest/lambda.js",
-        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "code": "exports.handler = function(event, context, callback) {\n        var res ={\n        \"statusCode\": 200,\n        \"headers\": {\n            \"Content-Type\": \"*/*\"\n        }\n    };\n\n    var greeter = 'World'\n    res.body = \"Hello, \" + greeter + \"!\";\n    callback(null, res);\n    \n    //callback(null, {\"message\": \"Successfully executed\"});\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -35,7 +35,16 @@
             "resourceName": "apigusEast1HiruKnewsamplepost",
             "config": {}
           }
-        ]
+        ],
+        "testCases": {
+          "d181e136-c8ff-4be1-b8b2-3f5736902a7a": {
+            "id": "d181e136-c8ff-4be1-b8b2-3f5736902a7a",
+            "name": "Test event",
+            "functionId": "aec6fccb-f3d3-43a2-82c7-467c9ee40939",
+            "event": "{\"key1\": \"value1\", \"key2\": \"value2\", \"key3\": \"value3\"}",
+            "eventTemplate": "hello-world"
+          }
+        }
       }
     },
     "rootNode": "ca88dc54-b4ab-43d1-ae4e-2e9a1adebceb",
@@ -56,7 +65,7 @@
           "resourceName": "sample",
           "resourcePath": "/sample",
           "restMethod": "POST",
-          "proxyIntegration": false,
+          "proxyIntegration": true,
           "enableCORS": false,
           "stageMode": 0,
           "stageName": "Test",
@@ -89,7 +98,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1574920216357
+    "lastSave": 1574920964146
   },
   "VCS_STATE": {
     "provider": "GitHub",
